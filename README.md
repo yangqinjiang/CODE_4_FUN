@@ -1,0 +1,1 @@
+#PHP_CODE_4_FUN
