@@ -1,25 +1,25 @@
 <?php
 $private_key = '-----BEGIN RSA PRIVATE KEY-----
-MIICXQIBAAKBgQC3//sR2tXw0wrC2DySx8vNGlqt3Y7ldU9+LBLI6e1KS5lfc5jl
-TGF7KBTSkCHBM3ouEHWqp1ZJ85iJe59aF5gIB2klBd6h4wrbbHA2XE1sq21ykja/
-Gqx7/IRia3zQfxGv/qEkyGOx+XALVoOlZqDwh76o2n1vP1D+tD3amHsK7QIDAQAB
-AoGBAKH14bMitESqD4PYwODWmy7rrrvyFPEnJJTECLjvKB7IkrVxVDkp1XiJnGKH
-2h5syHQ5qslPSGYJ1M/XkDnGINwaLVHVD3BoKKgKg1bZn7ao5pXT+herqxaVwWs6
-ga63yVSIC8jcODxiuvxJnUMQRLaqoF6aUb/2VWc2T5MDmxLhAkEA3pwGpvXgLiWL
-3h7QLYZLrLrbFRuRN4CYl4UYaAKokkAvZly04Glle8ycgOc2DzL4eiL4l/+x/gaq
-deJU/cHLRQJBANOZY0mEoVkwhU4bScSdnfM6usQowYBEwHYYh/OTv1a3SqcCE1f+
-qbAclCqeNiHajCcDmgYJ53LfIgyv0wCS54kCQAXaPkaHclRkQlAdqUV5IWYyJ25f
-oiq+Y8SgCCs73qixrU1YpJy9yKA/meG9smsl4Oh9IOIGI+zUygh9YdSmEq0CQQC2
-4G3IP2G3lNDRdZIm5NZ7PfnmyRabxk/UgVUWdk47IwTZHFkdhxKfC8QepUhBsAHL
-QjifGXY4eJKUBm3FpDGJAkAFwUxYssiJjvrHwnHFbg0rFkvvY63OSmnRxiL4X6EY
-yI9lblCsyfpl25l7l5zmJrAHn45zAiOoBrWqpM5edu7c
+MIICXgIBAAKBgQCzy2pCcUFnSeost+0mkT9Oyn91KswPWm/zm2eHcF4e+7oC+t1y
+ONQqf9XG9YD/OdiQR2ra2aupbhueOe5THA9ozkcVNhXf6lvmkCjIJmXHFQMvCn7J
+ibEHBJj4gQwarUtDstwWjUNhQR/g3k18nkJr/5jWFy2dqsM+QFyenYhiSwIDAQAB
+AoGACxSjRNsEA+CbTQw80l6rPyjduBPeJagWNDZEqCU1t8Udzqc1VJ/J+6CLRUrG
+G3SuMx4jqL83hCakDxlU5cxZ6qoxgymHQnOXUiAv+kT4JdcCiUAi5vtCaZReXg3P
+0DqFX1cmbuMTqbDNJB9NY8lBKgnyydTu+cYo/OuUOd2T97ECQQDZZmG5SSW1mMyN
+S6d2pQoM5XPXkUtdZR6svD7l9vfv+zZzpADYS+UtnKIack6H2mh3EIspTLAXj46m
+6cuT7QBTAkEA07e72fHOn+RlJmofrQBCYKMSDZYEqNE1z1c3N7U8c4+yMn5fg79X
+ytL8Dx8etU7lWzmmR8Q8CImABuZnrki3KQJBALWOt1ZSLFf4f/wQjo6bTkVu6svA
+37vj0zZXEABlvLKCjfsNoFcDKyZohUio5cS3Nj8ZZd7b2MQUdAIZhpbHe1kCQQCI
+JKtQn/TtzrHYvP93gSYt/E7cm66NXFMM7JmeYhXofevqGmeTUdTDoV7i3nEhyAUm
+33B0z9SG7Nx+E2VypmHZAkEAyTl7ywe47O6n89TjKQcFDagRpzUOLcd34K7Xjrb9
+y6j7W/K2SOAxQTBFLzOfqnRAYVckzYKuBcSPlubRpKb7ZQ==
 -----END RSA PRIVATE KEY-----';
 
 $public_key = '-----BEGIN PUBLIC KEY-----
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3//sR2tXw0wrC2DySx8vNGlqt
-3Y7ldU9+LBLI6e1KS5lfc5jlTGF7KBTSkCHBM3ouEHWqp1ZJ85iJe59aF5gIB2kl
-Bd6h4wrbbHA2XE1sq21ykja/Gqx7/IRia3zQfxGv/qEkyGOx+XALVoOlZqDwh76o
-2n1vP1D+tD3amHsK7QIDAQAB
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzy2pCcUFnSeost+0mkT9Oyn91
+KswPWm/zm2eHcF4e+7oC+t1yONQqf9XG9YD/OdiQR2ra2aupbhueOe5THA9ozkcV
+NhXf6lvmkCjIJmXHFQMvCn7JibEHBJj4gQwarUtDstwWjUNhQR/g3k18nkJr/5jW
+Fy2dqsM+QFyenYhiSwIDAQAB
 -----END PUBLIC KEY-----';
 
 //echo $private_key;
@@ -46,13 +46,14 @@ echo "public key decrypt:\n";
 openssl_public_decrypt(base64_decode($encrypted),$decrypted,$pu_key);//私钥加密的内容通过公钥可用解密出来
 echo $decrypted,"\n";
 
-echo "---------------------------------------\n";
-echo "public key encrypt:\n";
+// echo "---------------------------------------\n";
+// echo "public key encrypt:\n";
 
-openssl_public_encrypt($data,$encrypted,$pu_key);//公钥加密
-$encrypted = base64_encode($encrypted);
-echo $encrypted,"\n";
+// openssl_public_encrypt($data,$encrypted,$pu_key);//公钥加密
+// $encrypted = base64_encode($encrypted);
+// echo $encrypted,"\n\n";
 
-echo "private key decrypt:\n";
-openssl_private_decrypt(base64_decode($encrypted),$decrypted,$pi_key);//私钥解密
-echo $decrypted,"\n";
+// echo "private key decrypt:\n";
+// openssl_private_decrypt(base64_decode($encrypted),$decrypted,$pi_key);//私钥解密
+// echo $decrypted,"\n";
+// var_dump($decrypted == $data);
