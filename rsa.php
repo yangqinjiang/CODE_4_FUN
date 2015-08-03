@@ -29,7 +29,7 @@ print_r($pi_key);echo "\n";
 print_r($pu_key);echo "\n";
 
 
-$data = "aassssasssddd";//原始数据
+$data = "e10adc3949ba59abbe56e057f20f883e";//原始数据
 $encrypted = ""; 
 $decrypted = ""; 
 
