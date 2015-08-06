@@ -1,0 +1,16 @@
+<div style="background-color:#aaa9a9;width:25%;text-align:center;border-radius: 10px;font-weight:600;margin-bottom:15px;margin-left:4%;color:#fff;">
+	<a 
+	<?php if(isset($_GET['IOS'])){?>
+		onclick="ios_func('changeAd','ddddd','aaaaa');"
+	<?php }else{ ?>
+		href="javascript:window.local_obj.changeAd()" 
+	<?php }?>
+	>更换广告</a>
+</div>
+<script>
+function ios_func(cmd,parameter1,parameter2)
+{
+    alert('ios open...');
+    window.location.href="objc://"+cmd+":/"+parameter1+":/"+parameter2;
+}
+</script>
