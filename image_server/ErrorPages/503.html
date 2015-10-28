@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
+<meta name="format-detection" content="telephone=no" />
+<title>503错误</title>
+
+<style>
+* {
+	padding:0;margin:0
+}
+
+a {
+	color:#666;
+	text-decoration:none;
+}
+
+.error {
+	width:1024px;
+	margin:0 auto;	
+}
+
+.error-info {
+	width:550px;
+	height:33px;
+	line-height:33px;
+	margin:100px auto 0 auto;
+	padding-left:50px;
+	color:#1e798b;
+	font-size:18px;
+	font-weight:bold;
+	font-family:Verdana, Geneva, sans-serif;
+	background-image:url(http://image.weilianapp.com/ErrorPages/images/er-logo.png);
+	background-repeat:no-repeat;
+}
+
+.error-info a {
+	color:#1e798b;
+	text-decoration:underline;
+}
+
+.error-bg {
+	height: 350px;
+	text-align: center;
+	background-image: url(http://image.weilianapp.com/ErrorPages/images/error-bg.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size:100%;
+	
+}
+
+.error-bg img {
+	margin-top:150px;
+}
+
+.error-operating {
+	width:420px;	margin:120px auto 0 auto;
+}
+
+.error-o-t {
+	font-size:30px;
+	color:#1e798b;
+	height:50px;
+}
+
+.error-phone {
+	margin-top:80px;
+	text-align:center;
+	color:#909292;
+	font-size:20px;
+}
+
+
+
+
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #5194a1;
+	border-color: #1b5d6a;
+}
+
+.btn-primary:hover {
+	background-color: #1b5d6a;
+	border-color: #124d58
+}
+
+.btn-default {
+	color: #333;
+	background-color: #ccccc;
+	border-color: #adadad;
+}
+.btn-default:hover {
+	background-color: #e6e6e6;
+	border-color: #adaeae
+}
+
+
+
+@media screen and (max-width:676px) {
+	.error {
+		width:100%;
+
+	}
+	.error-info {
+		width:80%;
+		height:auto;
+		margin-top:50px;
+		line-height:25px;
+		background-position: 0 center;
+		background-image:url(http://image.weilianapp.com/ErrorPages/images/error.png);
+		background-size:45px auto;
+
+	}
+    .error-bg {
+		height:200px;
+	}
+	.error-bg img {
+	   width:60%;
+	   margin-top: 80px;
+	}
+	.error-operating {
+		margin-top:50px;
+	}
+	.error-phone {
+		margin-top:30px;
+	}
+	.error-operating {
+		width:280px;
+	}
+	.error-o-t {
+		font-size:20px;
+	}
+}
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="error">
+     <div class="error-info">很抱歉，服务器当前无法处理请求，或者返回<a href="http://www.weilianapp.com">首页</a>查看更多内容。</div>
+     <div class="error-bg"><div class="error-img"><img  src="http://image.weilianapp.com/ErrorPages/images/503.png"/></div></div>
+     <div class="error-operating">
+          <div class="error-o-t">您还可以：<a href="http://www.weilianapp.com/index.php?s=Index/download">点击下载APP客户端</a></div>
+          <div class="error-o-c">
+               <a class="btn btn-primary" href="http://www.weilianapp.com">返回首页</a>
+               <a class="btn btn-default" href="#">返回上一步</a>
+          </div>
+     </div>
+     <div class="error-phone">联系电话：0769-89833222</div>
+</div>
+
+</body>
+</html>
