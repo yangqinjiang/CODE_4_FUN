@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="myguestbook">
+    <table_data name="test">
+    <row>
+        <field name="id">1</field>
+        <field name="content">Hello buddy!</field>
+        <field name="user">joe---</field>
+        <field name="created">2010-04-24 17:15:23</field>
+    </row>
+    <row>
+        <field name="id">2</field>
+        <field name="content">I like it!</field>
+        <field name="user" xsi:nil="true" />
+        <field name="created">2010-04-26 12:14:20</field>
+    </row>
+    </table_data>
+</database>
+</mysqldump>
