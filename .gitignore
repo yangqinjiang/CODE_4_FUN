@@ -1,0 +1,12 @@
+/App/Runtime/
+/.idea/*
+/.idea/workspace.xml
+/.settings
+*.DS_Store
+/.buildpath
+/.project
+/Public/js/ueditor/php/upload/
+/.bash_history
+/report/
+/log/
+/jpush.log
