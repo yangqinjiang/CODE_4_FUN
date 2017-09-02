@@ -143,3 +143,65 @@ function parseUserList(\Redis &$redis, $key)
 
     return $login_user;
 }
+
+//记录用户UID
+ function login_redis_bitmap($uid,$params)
+{
+    //使用 Redis 统计在线用户人数
+    //http://www.open-open.com/lib/view/open1471683474268.html
+    // 在此  方案 4 ：使用位图（bitmap）
+
+    $redis_config = tpCache('redis');
+    if(empty($redis_config)){
+        Log::record("redis数据库的链接信息不正确");
+        sys_exception("redis数据库的链接信息不正确");
+        return false;
+
+    }
+    $_version = isset($params['_version']) ? $params['_version'] : 'non-version';
+
+    //检查版本号
+    //cengfan7.com_web_v1.3.2 打壳版本
+    $version_list = C('CENGFAN7_VERSION_LIST',NULL,[]);
+    if(!in_array($_version,$version_list)){
+        Log::record('版本号错误');
+        return false;
+    }
+
+    $CENGFAN7_ON_LINE = CENGFAN7_ON_LINE;
+    try {
+        $redis = new \Redis();
+
+        $host = isset($redis_config['host']) ? $redis_config['host'] : '127.0.0.1';
+        $pwd = isset($redis_config['auth']) ? $redis_config['auth'] : '';
+
+        $redis->connect($host);
+        $redis->auth($pwd);
+        //当一个用户上线时， 我们就使用 SETBIT 命令， 将这个用户对应的二进制位设置为 1 ：
+        $redis->select($CENGFAN7_ON_LINE ? 1 : 0);
+
+        $redis->sAdd('version_set',$_version);
+
+        $prefix = $CENGFAN7_ON_LINE ? 'prod:' : 'test:';
+
+        $prefix = $_version . ':' . $prefix;//加入版本号
+
+        $redis->setOption(\Redis::OPT_PREFIX, $prefix);
+        //TODO:每天
+        $day_key = 'online_users_day_'.date('Ymd',NOW_TIME);
+
+        $redis->setBit($day_key,$uid,1);
+        //TODO:每小时
+        $hour_key = 'online_users_hour_'.date('YmdH',NOW_TIME);
+        $redis->setBit($hour_key,$uid,1);
+
+        $redis->close();
+
+    } catch (\Exception $e) {
+        $err = 'Redis connect err'.$e->getMessage();
+        Log::record($err);
+        sys_exception("Redis链接错误!!!");
+        Cengfan7ErrorLogModel::record("Redis链接错误!!!");
+    }
+}
+
