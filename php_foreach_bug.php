@@ -58,5 +58,17 @@
             var_dump($exp);
         }
         dump($newExp);
+        /**
+         * output:
+        *array (size=1)
+          0 => 
+            array (size=6)
+              'name' => string 'test3' (length=5)
+              'age' => int 20
+              'extension' => string 'a:3:{s:4:"nose";s:5:"long3";s:5:"mouth";s:4:"big3";s:3:"eye";s:6:"small3";}' (length=75)
+              'nose' => string 'long3' (length=5)
+              'mouth' => string 'big3' (length=4)
+              'eye' => string 'small3' (length=6)
+        */
         exit;
     }
