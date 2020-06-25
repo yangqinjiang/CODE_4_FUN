@@ -1,0 +1,51 @@
+MySQL服务器参数
+内存配置相关参数
+1，确定可以使用的内存的上限
+2，确定MySQL的每个连接使用的内存
+sort_buffer_size
+join_buffer_size
+read_buffer_size
+read_rnd_buffer_size
+如何为缓存池分配内存
+Innodb_buffer_pool_size
+总内存 - （每个线程所需要的内存*连接数）- 系统保留内存
+key_buffer_size
+
+I/O 相关配置参数
+ innodb I/O 相关配置
+  事务日志
+  innodb_log_file_size
+  innodb_log_files_in_group
+
+  事务日志总大小 = innodb_log_file_size * innodb_log_files_in_group
+
+  Innodb_log_buffer_size 事务日志缓冲大小
+
+  Innodb_flush_log_at_trx_commit
+  0: 每秒进行一次log定稿cache, 并flush log 到磁盘
+  1[默认值]： 在每次事务提交执行log写入cache,并flush log到磁盘
+  2[建议]： 每次事务提交，执行log数据写入到cache,每秒执行一次flush log到磁盘
+
+ Innodb_flush_method = O_DIRECT
+
+ innodb_file_per_table =1 使用系统表空间还是独立表空间
+ innodb_doublewrite = 1
+
+ MyISAM I/O相关配置
+ 	delay_key_write
+
+
+安全相关配置参数
+expire_logs_days 指定自动清理binlog的天数
+max_allowed_packet 控制MySQL可以接收的包的大小
+skip_name_resolve 禁用DNS查找
+sysdate_in_now确保sysdate()返回确定性日期
+read_only禁止非super权限的用户写权限， 用于主从架构
+skip_slave_start 禁用slave自动恢复
+sql_mode设置mysql所使用的sql模式
+
+
+其他常用配置参数
+sync_binlog 控制mysql如何向磁盘刷新binlog
+tmp_table_size 和max_heap_table_size 控制内存临时表大小
+max_connections 控制允许的最大连接数
