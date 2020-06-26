@@ -1,0 +1,11 @@
+索引的维护和优化
+删除重复和冗余的索引
+pt-duplicate-key-checker h=127.0.0.1
+
+查找未被使用过的索引，见图片 [查找未被使用过的索引.png]
+
+
+
+更新索引统计信息及减少索引碎片
+analyze table table_name
+

@@ -1,0 +1,43 @@
+如何确认数据库是否可以通过网络连接
+1，mysqladmin -umonitor_user -p -h ping
+2，telnet ip db_port
+3，(最好的方式)使用程序通过网络建立数据库连接
+但是， 可以连接到数据库，不代表数据库可用
+
+如何确认数据库是否可读写
+1，检查数据库的read_only参数是否为off
+	定期对主从服务器中的主数据库的这个参数进行检查
+2，进行监控表并对表中数据进行更新
+3，执行简单的查询 select @@version
+
+如何监控数据库的连接数
+可以连接到mysql的线程数是有限制的
+有很多因素都会造成数据库的连接突然的增长，例如，出现阻塞，像memcache这样的缓存失效
+时刻关注数据库的连接数量的变化
+show variables like 'max_connections'
+show global status like 'Threads_connected'
+Threads_connected / max_connections > 0.8
+
+数据库可用性监控
+如何监控数据库的并发请求数量
+数据库系统的性能会随着并发处理请求数量的增加而下降
+show global status like 'Threads_running'
+并发处理的数量通常会远小于同一时间连接到数据库的线程的数量
+
+如何监控innodb的阻塞 见图片 [ 如何监控innodb的阻塞.png ]
+
+如何监控主从复制链路的状态
+如何监控主从复制延迟
+参与复制的主从服务器之间一定会存在着一些延迟
+show slave status
+这个方法需要使用多线程的程序同时对于主从服务器的状态来进行检查
+show master status
+	file:
+	postion:
+show slave status
+	master_log_file:
+	read_master_log_pos:
+
+
+如何验证主从复制的数据是否一致
+工具： pt-table-checksum 

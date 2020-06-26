@@ -1,0 +1,22 @@
+如何获取有性能问题的SQL
+1，通过用户反馈获取存在性能问题的SQL
+2, 通过慢查询日志获取存在性能问题的SQL
+	slow_query_log 启动停止记录慢查询日志
+	slow_query_log_file 指定慢查询日志的存储路径及文件
+	long_query_time 指定记录慢查询日志SQL执行时间的伐值
+	log_queries_not_using_indexes 是否记录未使用索引的SQL
+	常用工具 mysqldumpslow
+	mysqldumpslow -s r -t 10 slow_mysql.log
+	-s order (c,t,l,r,at,al,ar)
+	指定按哪种排序方式输出结果
+		c:总次数
+		t:总时间
+		l: 锁的时间
+		r: 总数据行
+		at,al,ar: t,l,r 平均数，例如， at = 总时间/总次数
+	-t top 指定取前几条作为结果输出
+
+
+	pt-query-digest --explain h=127.0.0.1,u=root,p=p@ssW0rd slow-mysql.log
+3, 实时获取存在性能问题的SQL 见图片【实时获取存在性能问题的SQL.png】
+

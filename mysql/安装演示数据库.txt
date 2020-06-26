@@ -1,0 +1,5 @@
+安装演示数据库
+1， http://downloads.mysql.com/docs/sakila-db.tar.gz
+2,tar -zxf sakila-db.tar.gz
+3, mysql -uroot -p < sakila-schema.sql
+4,mysql -uroot -p < sakila-data.sql
