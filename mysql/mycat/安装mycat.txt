@@ -1,0 +1,51 @@
+安装mycat.txt
+
+1,下载并解压 mycat
+	wget http://dl.mycat.io/1.6.5/Mycat-server-1.6.5-release-20180122220033-linux.tar.gz
+
+	tar zxf Mycat-server-1.6.5-release-20180122220033-linux.tar.gz
+2,安装java运行环境JDK1.7
+	a,删除旧的jdk
+		rpm -qa |grep java
+		rpm -e --nodeps 包名
+	b, 解压jdk1.7
+		tar zxf jdk-7u79-linux-x64.tar.gz
+
+	c, 转移
+		mkdir /usr/local/java
+		mv ./jdk1.7.0_79/  /usr/local/java
+3,新建mycat运行系统账号
+	adduser mycat
+	mv mycat/ /usr/local/
+	cd /usr/local
+	chown mycat:mycat -R mycat/  # 修改用户组权限
+
+4,配置系统环境变量
+	vi /etc/profile
+	export PATH=$PATH:/home/mysql/bin:/usr/local/mycat/bin:/usr/local/java/jdk1.7.0_79/bin
+
+	export JAVA_HOME=/usr/local/java/jdk1.7.0_79
+	export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+	export MYCAT_HOME=/usr/local/mycat
+
+	# source /etc/profile 配置生效
+
+
+
+5,修改mycat启动参数
+	修改mycat的内存配置
+	vi /mycat/conf/wrapper.conf
+	wrapper.java.additional.5=-XX:MaxDirectMemorySize=256M
+
+
+
+
+
+验证：
+java -version
+启动mycat:
+mycat start
+
+ps -ef |grep mycat
+ps -ef|grep java
